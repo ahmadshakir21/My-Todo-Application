@@ -2,16 +2,14 @@ class TaskModel {
   String? uID;
   String? title;
   String? bodyText;
-  DateTime? date;
 
-  TaskModel({this.uID, this.title, this.bodyText, this.date});
+  TaskModel({this.uID, this.title, this.bodyText});
 
   Map<String, dynamic> toMap() {
     return {
       "uID": uID,
       "title": title,
       "bodyText": bodyText,
-      "date": date,
     };
   }
 
@@ -20,7 +18,6 @@ class TaskModel {
       uID: map['uID'],
       title: map['title'],
       bodyText: map['bodyText'],
-      date: map['date'],
     );
   }
 }
