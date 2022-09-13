@@ -1,23 +1,26 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/gestures.dart';
+
 class TaskModel {
-  String? uID;
-  String? title;
-  String? bodyText;
+  String? id;
+  String? taskName;
+  String? taskDescription;
 
-  TaskModel({this.uID, this.title, this.bodyText});
+  TaskModel({this.id, this.taskName, this.taskDescription});
 
-  Map<String, dynamic> toMap() {
-    return {
-      "uID": uID,
-      "title": title,
-      "bodyText": bodyText,
-    };
+  factory TaskModel.fromSnapshot(DocumentSnapshot snap) {
+    var snapshot = snap.data() as Map<String, dynamic>;
+    return TaskModel(
+        id: snapshot['id'],
+        taskName: snapshot['taskName'],
+        taskDescription: snapshot['taskDescription']);
   }
 
-  factory TaskModel.fromMap(Map<String, dynamic> map) {
-    return TaskModel(
-      uID: map['uID'],
-      title: map['title'],
-      bodyText: map['bodyText'],
-    );
+  Map<String, dynamic> toJson() {
+    return {
+      "id": id,
+      "taskName": taskName,
+      "taskDescription": taskDescription,
+    };
   }
 }

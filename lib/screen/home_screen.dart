@@ -1,9 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
 import 'package:todo_app/model/task_model.dart';
 import 'package:todo_app/screen/about_me.dart';
+import 'package:todo_app/screen/edit_task.dart';
+import 'package:todo_app/service/cloud_firestore.dart';
 import 'package:todo_app/widget/drawer_item.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -26,6 +27,17 @@ class _HomeScreenState extends State<HomeScreen> {
     taskDescriptionController.dispose();
     super.dispose();
   }
+
+  // Future create() async {
+  //   final taskCollection = FirebaseFirestore.instance.collection("task");
+
+  //   final docRef = taskCollection.doc();
+
+  //   await docRef.set({
+  //     "taskName": taskNameController.text,
+  //     "taskDescription": taskDescriptionController.text
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -220,54 +232,79 @@ class _HomeScreenState extends State<HomeScreen> {
                 const SizedBox(
                   height: 30,
                 ),
-                Container(
-                  height: 615,
-                  width: double.infinity,
-                  child: ListView.builder(
-                    itemCount: 8,
-                    itemBuilder: (context, index) {
-                      return GestureDetector(
-                        onTap: () {},
-                        child: Container(
+                StreamBuilder<List<TaskModel>>(
+                    stream: CloudFirestore.readData(),
+                    builder: (context, snapshot) {
+                      if (snapshot.connectionState == ConnectionState.waiting) {
+                        return const CircularProgressIndicator();
+                      } else if (snapshot.hasError) {
+                        return const Center(child: Text("Some error occured"));
+                      } else if (snapshot.hasData) {
+                        final taskData = snapshot.data;
+                        return Container(
+                          height: 615,
                           width: double.infinity,
-                          height: 150,
-                          padding: const EdgeInsets.all(10),
-                          margin: const EdgeInsets.all(10),
-                          decoration: BoxDecoration(
-                              color: Colors.redAccent,
-                              borderRadius: BorderRadius.circular(10)),
-                          child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: const [
-                                    Text(
-                                      "Playing Football",
-                                      style: TextStyle(
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.w500),
-                                    ),
-                                    Text(
-                                      "3-12-2021",
-                                      style: TextStyle(
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w400),
-                                    )
-                                  ],
+                          child: ListView.builder(
+                            itemCount: taskData!.length,
+                            itemBuilder: (context, index) {
+                              final singleData = taskData[index];
+                              return GestureDetector(
+                                onTap: () {},
+                                child: Container(
+                                  width: double.infinity,
+                                  height: 175,
+                                  padding: const EdgeInsets.all(10),
+                                  margin: const EdgeInsets.all(10),
+                                  decoration: BoxDecoration(
+                                      color: Colors.redAccent,
+                                      borderRadius: BorderRadius.circular(10)),
+                                  child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Text(
+                                              singleData.taskName.toString(),
+                                              style: const TextStyle(
+                                                  fontSize: 18,
+                                                  fontWeight: FontWeight.w500),
+                                            ),
+                                            IconButton(
+                                                onPressed: () {
+                                                  Navigator.of(context)
+                                                      .push(MaterialPageRoute(
+                                                    builder: (context) => EditTask(
+                                                        taskForEdit: TaskModel(
+                                                            id: singleData.id,
+                                                            taskName: singleData
+                                                                .taskName,
+                                                            taskDescription:
+                                                                singleData
+                                                                    .taskDescription)),
+                                                  ));
+                                                },
+                                                icon: const Icon(Icons.edit)),
+                                          ],
+                                        ),
+                                        const SizedBox(
+                                          height: 15,
+                                        ),
+                                        Text(singleData.taskDescription
+                                            .toString()),
+                                      ]),
                                 ),
-                                const SizedBox(
-                                  height: 15,
-                                ),
-                                const Text(
-                                    "hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello "),
-                              ]),
-                        ),
+                              );
+                            },
+                          ),
+                        );
+                      }
+                      return const Center(
+                        child: CircularProgressIndicator(),
                       );
-                    },
-                  ),
-                ),
+                    }),
               ],
             ),
           ),
@@ -327,20 +364,30 @@ class _HomeScreenState extends State<HomeScreen> {
                               width: 135,
                               child: ElevatedButton(
                                   onPressed: () {
-                                    final firestoreInstance =
-                                        FirebaseFirestore.instance;
+                                    CloudFirestore.create(TaskModel(
+                                        taskName: taskNameController.text,
+                                        taskDescription:
+                                            taskDescriptionController.text));
 
-                                    TaskModel taskModel = TaskModel();
+                                    taskNameController.text = "";
+                                    taskDescriptionController.text = "";
 
-                                    taskModel.title = taskNameController.text;
-                                    taskModel.bodyText =
-                                        taskDescriptionController.text;
-
-                                    firestoreInstance.collection("task").add({
-                                      "title": taskNameController,
-                                      "bodyText": taskDescriptionController
-                                    }).then((value) => print(value.id));
+                                    Navigator.pop(context);
                                   },
+                                  // final firestoreInstance =
+                                  //     FirebaseFirestore.instance;
+
+                                  // TaskModel taskModel = TaskModel();
+
+                                  // taskModel.title = taskNameController.text;
+                                  // taskModel.bodyText =
+                                  //     taskDescriptionController.text;
+
+                                  // firestoreInstance
+                                  //     .collection("task")
+                                  //     .doc()
+                                  //     .set(taskModel.toMap());
+                                  // },
                                   style: ElevatedButton.styleFrom(
                                       shape: RoundedRectangleBorder(
                                           borderRadius:
