@@ -39,6 +39,12 @@ dependencies:
   font_awesome_flutter: ^10.2.1
   firebase_auth: ^3.8.0
   email_validator: ^2.1.17
+  firebase_storage: ^10.3.8
+  file_picker: ^5.0.1
+  image_picker: ^0.8.5+3
+  path: ^1.8.1
+  get: ^4.6.5
+  permission_handler: ^10.0.0
 
 dev_dependencies:
   flutter_test:
