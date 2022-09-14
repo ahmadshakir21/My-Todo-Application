@@ -50,4 +50,16 @@ class CloudFirestore {
       print(error);
     }
   }
+
+  static Future delete(TaskModel taskModel) async {
+    final taskCollection = FirebaseFirestore.instance.collection("task");
+
+    final docRef = taskCollection.doc(taskModel.id).delete();
+
+    // final task = TaskModel(
+    //         id: taskModel.id,
+    //         taskName: taskModel.taskName,
+    //         taskDescription: taskModel.taskDescription)
+    //     .toJson();
+  }
 }

@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import 'package:todo_app/model/task_model.dart';
@@ -98,7 +99,109 @@ class _HomeScreenState extends State<HomeScreen> {
               height: 15,
             ),
             DrawerItems(
-                icon: Icons.add_box_rounded, text: "Add Task", onClick: () {}),
+              icon: Icons.add_box_rounded,
+              text: "Add Task",
+              onClick: () {
+                showDialog(
+                  context: context,
+                  builder: (context) {
+                    return Dialog(
+                        elevation: 5,
+                        alignment: Alignment.center,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20)),
+                        child: SingleChildScrollView(
+                          child: Container(
+                            height: 430,
+                            width: 350,
+                            child: Padding(
+                              padding: const EdgeInsets.all(10),
+                              child: Column(children: [
+                                const SizedBox(
+                                  height: 10,
+                                ),
+                                const Text(
+                                  "Adding Your Task",
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.w600,
+                                      color: Color(0xFF244395)),
+                                ),
+                                const SizedBox(
+                                  height: 30,
+                                ),
+                                TextField(
+                                  controller: taskNameController,
+                                  decoration: InputDecoration(
+                                      hintText: "Task Name",
+                                      border: OutlineInputBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(10))),
+                                ),
+                                const SizedBox(
+                                  height: 15,
+                                ),
+                                TextField(
+                                  maxLines: 7,
+                                  controller: taskDescriptionController,
+                                  decoration: InputDecoration(
+                                      hintText: "Task Description",
+                                      border: OutlineInputBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(10))),
+                                ),
+                                const SizedBox(
+                                  height: 40,
+                                ),
+                                Container(
+                                  width: 135,
+                                  child: ElevatedButton(
+                                      onPressed: () {
+                                        CloudFirestore.create(TaskModel(
+                                            taskName: taskNameController.text,
+                                            taskDescription:
+                                                taskDescriptionController
+                                                    .text));
+
+                                        taskNameController.text = "";
+                                        taskDescriptionController.text = "";
+
+                                        Navigator.pop(context);
+                                      },
+                                      // final firestoreInstance =
+                                      //     FirebaseFirestore.instance;
+
+                                      // TaskModel taskModel = TaskModel();
+
+                                      // taskModel.title = taskNameController.text;
+                                      // taskModel.bodyText =
+                                      //     taskDescriptionController.text;
+
+                                      // firestoreInstance
+                                      //     .collection("task")
+                                      //     .doc()
+                                      //     .set(taskModel.toMap());
+                                      // },
+                                      style: ElevatedButton.styleFrom(
+                                          shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(10)),
+                                          primary: Colors.indigo),
+                                      child: const Text(
+                                        "DONE",
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.w600),
+                                      )),
+                                ),
+                              ]),
+                            ),
+                          ),
+                        ));
+                  },
+                );
+                scaffoldKey.currentState!.closeDrawer();
+              },
+            ),
             DrawerItems(
                 icon: Icons.person,
                 text: "About Me",
@@ -173,7 +276,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                 SizedBox(
                                   width: 110,
                                   child: ElevatedButton(
-                                      onPressed: () {},
+                                      onPressed: () {
+                                        // Navigator.pop(context);
+                                        // FirebaseAuth.instance.signOut();
+                                      },
                                       style: ElevatedButton.styleFrom(
                                           shape: RoundedRectangleBorder(
                                               borderRadius:
@@ -248,54 +354,162 @@ class _HomeScreenState extends State<HomeScreen> {
                             itemCount: taskData!.length,
                             itemBuilder: (context, index) {
                               final singleData = taskData[index];
-                              return GestureDetector(
-                                onTap: () {},
-                                child: Container(
-                                  width: double.infinity,
-                                  height: 175,
-                                  padding: const EdgeInsets.all(10),
-                                  margin: const EdgeInsets.all(10),
-                                  decoration: BoxDecoration(
-                                      color: Colors.redAccent,
-                                      borderRadius: BorderRadius.circular(10)),
-                                  child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Text(
-                                              singleData.taskName.toString(),
-                                              style: const TextStyle(
-                                                  fontSize: 18,
-                                                  fontWeight: FontWeight.w500),
-                                            ),
-                                            IconButton(
-                                                onPressed: () {
-                                                  Navigator.of(context)
-                                                      .push(MaterialPageRoute(
-                                                    builder: (context) => EditTask(
-                                                        taskForEdit: TaskModel(
-                                                            id: singleData.id,
-                                                            taskName: singleData
-                                                                .taskName,
-                                                            taskDescription:
-                                                                singleData
-                                                                    .taskDescription)),
-                                                  ));
-                                                },
-                                                icon: const Icon(Icons.edit)),
-                                          ],
-                                        ),
-                                        const SizedBox(
-                                          height: 15,
-                                        ),
-                                        Text(singleData.taskDescription
-                                            .toString()),
-                                      ]),
-                                ),
+                              return Container(
+                                width: double.infinity,
+                                height: 175,
+                                padding: const EdgeInsets.all(10),
+                                margin: const EdgeInsets.all(10),
+                                decoration: BoxDecoration(
+                                    color: Colors.redAccent,
+                                    borderRadius: BorderRadius.circular(10)),
+                                child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Text(
+                                            singleData.taskName.toString(),
+                                            style: const TextStyle(
+                                                fontSize: 18,
+                                                fontWeight: FontWeight.w500),
+                                          ),
+                                          Row(
+                                            children: [
+                                              IconButton(
+                                                  onPressed: () {
+                                                    Navigator.of(context)
+                                                        .push(MaterialPageRoute(
+                                                      builder: (context) => EditTask(
+                                                          taskForEdit: TaskModel(
+                                                              id: singleData.id,
+                                                              taskName:
+                                                                  singleData
+                                                                      .taskName,
+                                                              taskDescription:
+                                                                  singleData
+                                                                      .taskDescription)),
+                                                    ));
+                                                  },
+                                                  icon: const Icon(Icons.edit)),
+                                              IconButton(
+                                                  onPressed: () {
+                                                    showDialog(
+                                                      context: context,
+                                                      builder: (context) {
+                                                        return Dialog(
+                                                          elevation: 5,
+                                                          alignment:
+                                                              Alignment.center,
+                                                          shape: RoundedRectangleBorder(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          20)),
+                                                          child: Container(
+                                                            height: 185,
+                                                            width: 370,
+                                                            child: Column(
+                                                              children: [
+                                                                const SizedBox(
+                                                                  height: 20,
+                                                                ),
+                                                                const Text(
+                                                                  "Delete Task",
+                                                                  style: TextStyle(
+                                                                      fontSize:
+                                                                          19,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w600,
+                                                                      color: Color(
+                                                                          0xFF244395)),
+                                                                ),
+                                                                const SizedBox(
+                                                                  height: 20,
+                                                                ),
+                                                                const Text(
+                                                                  "Are you Sure want to Delete this task ?",
+                                                                  style: TextStyle(
+                                                                      fontSize:
+                                                                          17,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w500,
+                                                                      color: Color(
+                                                                          0xFF244395)),
+                                                                ),
+                                                                const SizedBox(
+                                                                  height: 35,
+                                                                ),
+                                                                Row(
+                                                                  mainAxisAlignment:
+                                                                      MainAxisAlignment
+                                                                          .spaceEvenly,
+                                                                  children: [
+                                                                    SizedBox(
+                                                                      width:
+                                                                          110,
+                                                                      child: ElevatedButton(
+                                                                          onPressed: () {
+                                                                            Navigator.pop(context);
+                                                                          },
+                                                                          style: ElevatedButton.styleFrom(shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)), primary: Colors.indigo),
+                                                                          child: const Text(
+                                                                            "Cancel",
+                                                                            style:
+                                                                                TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                                                                          )),
+                                                                    ),
+                                                                    SizedBox(
+                                                                      width:
+                                                                          110,
+                                                                      child: ElevatedButton(
+                                                                          onPressed: () {
+                                                                            CloudFirestore.delete(singleData).then((value) =>
+                                                                                Navigator.pop(context));
+                                                                          },
+                                                                          style: ElevatedButton.styleFrom(shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)), primary: const Color(0xFFE24047)),
+                                                                          child: const Text(
+                                                                            "Delete",
+                                                                            style:
+                                                                                TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                                                                          )),
+                                                                    )
+                                                                  ],
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          ),
+                                                        );
+                                                      },
+                                                    );
+                                                    // Navigator.of(context)
+                                                    //     .push(MaterialPageRoute(
+                                                    //   builder: (context) => EditTask(
+                                                    //       taskForEdit: TaskModel(
+                                                    //           id: singleData.id,
+                                                    //           taskName: singleData
+                                                    //               .taskName,
+                                                    //           taskDescription:
+                                                    //               singleData
+                                                    //                   .taskDescription)),
+                                                    // ));
+                                                  },
+                                                  icon: const Icon(
+                                                      Icons.delete_rounded)),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                      const SizedBox(
+                                        height: 15,
+                                      ),
+                                      Text(singleData.taskDescription
+                                          .toString()),
+                                    ]),
                               );
                             },
                           ),
