@@ -123,13 +123,61 @@ class _HomeScreenState extends State<HomeScreen> {
                           Stack(
                             alignment: Alignment.bottomCenter,
                             children: [
-                              Container(
-                                height: 75,
-                                width: 75,
-                                decoration: BoxDecoration(
-                                    color: const Color(0xFFC3C3C3),
-                                    borderRadius: BorderRadius.circular(10)),
+                              // Container(
+                              //   height: 75,
+                              //   width: 75,
+                              //   decoration: BoxDecoration(
+                              //       color: const Color(0xFFC3C3C3),
+                              //       borderRadius: BorderRadius.circular(10)),
+                              // ),
+
+                              // Container(
+                              //   height: 40,
+                              //   width: 40,
+                              //   child: FadeInImage(
+                              //       placeholder:
+                              //           AssetImage('assets/images/man.png'),
+                              //       image: NetworkImage(userModel.image!),
+                              //       imageErrorBuilder:
+                              //           (ctx, exception, stackTrace) {
+                              //         return ClipRRect(
+                              //           borderRadius: BorderRadius.circular(10),
+                              //           child: Container(
+                              //             height: 40,
+                              //             width: 40,
+                              //             decoration: BoxDecoration(
+                              //               borderRadius:
+                              //                   BorderRadius.circular(20),
+                              //             ),
+                              //             child: Image.asset(
+                              //               'assets/images/man.png',
+                              //               fit: BoxFit.cover,
+                              //             ),
+                              //           ),
+                              //         );
+                              //       }),
+                              // ),
+
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(10),
+                                child: Container(
+                                  height: 75,
+                                  width: 75,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(20)),
+                                  child: userModel.image! != null
+                                      ? Image.network(
+                                          userModel.image!,
+                                          fit: BoxFit.cover,
+                                        )
+                                      : Container(
+                                          height: 75,
+                                          width: 75,
+                                          color: Colors.indigo,
+                                        ),
+                                ),
                               ),
+
                               // userModel.image != null
                               //     ? ClipRRect(
                               //         borderRadius: BorderRadius.circular(10),
@@ -145,18 +193,27 @@ class _HomeScreenState extends State<HomeScreen> {
                               //           ),
                               //         ),
                               //       )
-                              //     : Container(
-                              //         height: 75,
-                              //         width: 75,
-                              //         decoration: BoxDecoration(
-                              //             color: const Color(0xFFC3C3C3),
-                              //             borderRadius:
-                              //                 BorderRadius.circular(15)),
+                              //     : ClipRRect(
+                              //         borderRadius: BorderRadius.circular(10),
+                              //         child: Container(
+                              //           height: 75,
+                              //           width: 75,
+                              //           decoration: BoxDecoration(
+                              //               borderRadius:
+                              //                   BorderRadius.circular(20)),
+                              //           child: Image.asset(
+                              //             "assets/images/man.png",
+                              //             fit: BoxFit.cover,
+                              //           ),
+                              //         ),
                               //       ),
 
                               IconButton(
                                   onPressed: uploadImage,
-                                  icon: const Icon(Icons.add_circle_rounded)),
+                                  icon: const Icon(
+                                    Icons.add_circle_rounded,
+                                    color: Colors.white,
+                                  )),
                             ],
                           ),
                           const SizedBox(
@@ -209,7 +266,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   borderRadius: BorderRadius.circular(20)),
                               child: SingleChildScrollView(
                                 child: Container(
-                                  height: 430,
+                                  height: 450,
                                   width: 350,
                                   child: Padding(
                                     padding: const EdgeInsets.all(10),
@@ -325,7 +382,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(20)),
                             child: Container(
-                              height: 185,
+                              height: 200,
                               width: 350,
                               child: Column(
                                 children: [
@@ -335,7 +392,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   const Text(
                                     "Alert",
                                     style: TextStyle(
-                                        fontSize: 20,
+                                        fontSize: 18,
                                         fontWeight: FontWeight.w600,
                                         color: Color(0xFF244395)),
                                   ),
@@ -345,7 +402,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   const Text(
                                     "Are you Sure want to Logout?",
                                     style: TextStyle(
-                                        fontSize: 18,
+                                        fontSize: 16,
                                         fontWeight: FontWeight.w500,
                                         color: Color(0xFF244395)),
                                   ),
@@ -371,7 +428,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                             child: const Text(
                                               "Cancel",
                                               style: TextStyle(
-                                                  fontSize: 16,
+                                                  fontSize: 14,
                                                   fontWeight: FontWeight.w500),
                                             )),
                                       ),
@@ -392,7 +449,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                             child: const Text(
                                               "Logout",
                                               style: TextStyle(
-                                                  fontSize: 16,
+                                                  fontSize: 14,
                                                   fontWeight: FontWeight.w500),
                                             )),
                                       )
@@ -423,20 +480,95 @@ class _HomeScreenState extends State<HomeScreen> {
                               },
                               icon: const Icon(
                                 Icons.menu_rounded,
-                                size: 32,
+                                size: 35,
                               )),
                           const Text(
                             "Home",
                             style: TextStyle(
                                 fontSize: 22, fontWeight: FontWeight.w600),
                           ),
-                          Container(
-                            height: 40,
-                            width: 40,
-                            decoration: BoxDecoration(
-                                color: Colors.indigo,
-                                borderRadius: BorderRadius.circular(10)),
+                          // Container(
+                          //   height: 40,
+                          //   width: 40,
+                          //   decoration: BoxDecoration(
+                          //       color: Colors.indigo,
+                          //       borderRadius: BorderRadius.circular(10)),
+                          // ),
+
+                          // Container(
+                          //   height: 75,
+                          //   width: 75,
+                          //   child: FadeInImage(
+                          //     placeholder: AssetImage('assets/images/man.png'),
+                          //     image: NetworkImage(userModel.image!),
+                          //     imageErrorBuilder: (ctx, exception, stackTrace) {
+                          //       return ClipRRect(
+                          //         borderRadius: BorderRadius.circular(10),
+                          //         child: Container(
+                          //           height: 40,
+                          //           width: 40,
+                          //           decoration: BoxDecoration(
+                          //             borderRadius: BorderRadius.circular(20),
+                          //           ),
+                          //           child: Image.asset(
+                          //             'assets/images/man.png',
+                          //             fit: BoxFit.cover,
+                          //           ),
+                          //         ),
+                          //       );
+                          //     },
+                          //   ),
+                          // ),
+
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(10),
+                            child: Container(
+                              height: 45,
+                              width: 45,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(20)),
+                              child: userModel.image! != null
+                                  ? Image.network(
+                                      userModel.image!,
+                                      fit: BoxFit.cover,
+                                    )
+                                  : Container(
+                                      height: 45,
+                                      width: 45,
+                                      color: Colors.grey,
+                                    ),
+                            ),
                           ),
+
+                          // userModel.image != null
+                          //     ? ClipRRect(
+                          //         borderRadius: BorderRadius.circular(10),
+                          //         child: Container(
+                          //           height: 45,
+                          //           width: 45,
+                          //           decoration: BoxDecoration(
+                          //               borderRadius:
+                          //                   BorderRadius.circular(20)),
+                          //           child: Image.network(
+                          //             userModel.image!,
+                          //             fit: BoxFit.cover,
+                          //           ),
+                          //         ),
+                          //       )
+                          //     : ClipRRect(
+                          //         borderRadius: BorderRadius.circular(10),
+                          //         child: Container(
+                          //           height: 75,
+                          //           width: 75,
+                          //           decoration: BoxDecoration(
+                          //               borderRadius:
+                          //                   BorderRadius.circular(20)),
+                          //           child: Image.asset(
+                          //             "assets/images/man.png",
+                          //             fit: BoxFit.cover,
+                          //           ),
+                          //         ),
+                          //       ),
                         ],
                       ),
                       const SizedBox(
@@ -523,7 +655,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                                             20)),
                                                                 child:
                                                                     Container(
-                                                                  height: 185,
+                                                                  height: 200,
                                                                   width: 370,
                                                                   child: Column(
                                                                     children: [
@@ -535,7 +667,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                                         "Delete Task",
                                                                         style: TextStyle(
                                                                             fontSize:
-                                                                                19,
+                                                                                18,
                                                                             fontWeight:
                                                                                 FontWeight.w600,
                                                                             color: Color(0xFF244395)),
@@ -544,14 +676,19 @@ class _HomeScreenState extends State<HomeScreen> {
                                                                         height:
                                                                             20,
                                                                       ),
-                                                                      const Text(
-                                                                        "Are you Sure want to Delete this task ?",
-                                                                        style: TextStyle(
-                                                                            fontSize:
-                                                                                17,
-                                                                            fontWeight:
-                                                                                FontWeight.w500,
-                                                                            color: Color(0xFF244395)),
+                                                                      const Padding(
+                                                                        padding:
+                                                                            EdgeInsets.symmetric(horizontal: 5),
+                                                                        child:
+                                                                            Text(
+                                                                          "Are you Sure want to Delete this task ?",
+                                                                          textAlign:
+                                                                              TextAlign.center,
+                                                                          style: TextStyle(
+                                                                              fontSize: 16,
+                                                                              fontWeight: FontWeight.w500,
+                                                                              color: Color(0xFF244395)),
+                                                                        ),
                                                                       ),
                                                                       const SizedBox(
                                                                         height:
@@ -571,7 +708,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                                                 style: ElevatedButton.styleFrom(shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)), primary: Colors.indigo),
                                                                                 child: const Text(
                                                                                   "Cancel",
-                                                                                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                                                                                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
                                                                                 )),
                                                                           ),
                                                                           SizedBox(
@@ -584,7 +721,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                                                 style: ElevatedButton.styleFrom(shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)), primary: const Color(0xFFE24047)),
                                                                                 child: const Text(
                                                                                   "Delete",
-                                                                                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                                                                                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
                                                                                 )),
                                                                           )
                                                                         ],
@@ -644,7 +781,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               borderRadius: BorderRadius.circular(20)),
                           child: SingleChildScrollView(
                             child: Container(
-                              height: 430,
+                              height: 450,
                               width: 350,
                               child: Padding(
                                 padding: const EdgeInsets.all(10),

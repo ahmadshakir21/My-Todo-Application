@@ -38,71 +38,74 @@ class _EditTaskState extends State<EditTask> {
       child: Scaffold(
           body: Padding(
         padding: const EdgeInsets.all(10),
-        child: Column(children: [
-          Row(
-            children: [
-              IconButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  icon: const Icon(
-                    Icons.arrow_back_rounded,
-                    size: 32,
-                  )),
-              const SizedBox(
-                width: 95,
-              ),
-              const Text(
-                "Edit Task",
-                style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600),
-              ),
-            ],
-          ),
-          const SizedBox(
-            height: 30,
-          ),
-          TextField(
-            controller: taskNameController,
-            decoration: InputDecoration(
-                hintText: "Task Name",
-                border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10))),
-          ),
-          const SizedBox(
-            height: 15,
-          ),
-          TextField(
-            maxLines: 7,
-            controller: taskDescriptionController,
-            decoration: InputDecoration(
-                hintText: "Task Description",
-                border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10))),
-          ),
-          const SizedBox(
-            height: 50,
-          ),
-          Container(
-              width: 200,
-              height: 40,
-              child: ElevatedButton(
-                  onPressed: () {
-                    CloudFirestore.update(
-                      TaskModel(
-                          id: widget.taskForEdit.id,
-                          taskName: taskNameController!.text,
-                          taskDescription: taskDescriptionController!.text),
-                    ).then((value) => {Navigator.pop(context)});
-                  },
-                  style: ElevatedButton.styleFrom(
-                      primary: Colors.indigo,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(50))),
-                  child: const Text(
-                    "Update",
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
-                  ))),
-        ]),
+        child: SingleChildScrollView(
+          child: Column(children: [
+            Row(
+              children: [
+                IconButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    icon: const Icon(
+                      Icons.arrow_back_rounded,
+                      size: 32,
+                    )),
+                const SizedBox(
+                  width: 80,
+                ),
+                const Text(
+                  "Edit Task",
+                  style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600),
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+            TextField(
+              controller: taskNameController,
+              decoration: InputDecoration(
+                  hintText: "Task Name",
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10))),
+            ),
+            const SizedBox(
+              height: 15,
+            ),
+            TextField(
+              maxLines: 7,
+              controller: taskDescriptionController,
+              decoration: InputDecoration(
+                  hintText: "Task Description",
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10))),
+            ),
+            const SizedBox(
+              height: 50,
+            ),
+            Container(
+                width: 200,
+                height: 40,
+                child: ElevatedButton(
+                    onPressed: () {
+                      CloudFirestore.update(
+                        TaskModel(
+                            id: widget.taskForEdit.id,
+                            taskName: taskNameController!.text,
+                            taskDescription: taskDescriptionController!.text),
+                      ).then((value) => {Navigator.pop(context)});
+                    },
+                    style: ElevatedButton.styleFrom(
+                        primary: Colors.indigo,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(50))),
+                    child: const Text(
+                      "Update",
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+                    ))),
+          ]),
+        ),
       )),
     );
   }
