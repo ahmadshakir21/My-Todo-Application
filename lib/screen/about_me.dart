@@ -1,8 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class AboutMe extends StatelessWidget {
   const AboutMe({Key? key}) : super(key: key);
+
+  launchURL(String urlargument) async {
+    Uri uri = Uri.parse(urlargument);
+    if (await canLaunchUrl(uri)) {
+      await launchUrl(uri);
+    } else {
+      print("Error");
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -80,7 +90,10 @@ class AboutMe extends StatelessWidget {
                   width: 300,
                   height: 40,
                   child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        launchURL(
+                            "https://www.facebook.com/Ahmad.Shakir.Khalid");
+                      },
                       style: ElevatedButton.styleFrom(
                           primary: const Color(0xFF4267B2)),
                       child: Row(
@@ -105,7 +118,10 @@ class AboutMe extends StatelessWidget {
                   width: 300,
                   height: 40,
                   child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        launchURL(
+                            "https://www.linkedin.com/in/ahmad-shakir-1a6a95226/");
+                      },
                       style: ElevatedButton.styleFrom(
                           primary: const Color(0xFF0077b5)),
                       child: Row(
@@ -130,7 +146,9 @@ class AboutMe extends StatelessWidget {
                   width: 300,
                   height: 40,
                   child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        launchURL("https://twitter.com/ahmadshakir21");
+                      },
                       style: ElevatedButton.styleFrom(
                           primary: const Color(0xFF1DA1F2)),
                       child: Row(
@@ -155,7 +173,9 @@ class AboutMe extends StatelessWidget {
                   width: 300,
                   height: 40,
                   child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        launchURL("https://github.com/ahmadshakir21");
+                      },
                       style: ElevatedButton.styleFrom(
                           primary: const Color(0xFF0B2E40)),
                       child: Row(

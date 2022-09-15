@@ -115,7 +115,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     padding: const EdgeInsets.symmetric(
                         vertical: 40, horizontal: 10),
                     decoration: const BoxDecoration(
-                      color: Color(0xFF244395),
+                      color: Color(0xFF0B2E40),
                     ),
                     child: SingleChildScrollView(
                       child: Row(
@@ -165,15 +165,16 @@ class _HomeScreenState extends State<HomeScreen> {
                                   width: 75,
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(20)),
-                                  child: userModel.image! != null
-                                      ? Image.network(
-                                          userModel.image!,
-                                          fit: BoxFit.cover,
-                                        )
-                                      : Container(
+                                  child: userModel.image!.isEmpty
+                                      ? Container(
                                           height: 75,
                                           width: 75,
-                                          color: Colors.indigo,
+                                          color: const Color.fromARGB(
+                                              255, 34, 76, 97),
+                                        )
+                                      : Image.network(
+                                          userModel.image!,
+                                          fit: BoxFit.cover,
                                         ),
                                 ),
                               ),
@@ -279,7 +280,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         style: TextStyle(
                                             fontSize: 20,
                                             fontWeight: FontWeight.w600,
-                                            color: Color(0xFF244395)),
+                                            color: Color(0xFF0B2E40)),
                                       ),
                                       const SizedBox(
                                         height: 30,
@@ -343,7 +344,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             10)),
-                                                primary: Colors.indigo),
+                                                primary:
+                                                    const Color(0xFF0B2E40)),
                                             child: const Text(
                                               "DONE",
                                               style: TextStyle(
@@ -394,7 +396,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     style: TextStyle(
                                         fontSize: 18,
                                         fontWeight: FontWeight.w600,
-                                        color: Color(0xFF244395)),
+                                        color: Color(0xFF0B2E40)),
                                   ),
                                   const SizedBox(
                                     height: 20,
@@ -404,7 +406,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     style: TextStyle(
                                         fontSize: 16,
                                         fontWeight: FontWeight.w500,
-                                        color: Color(0xFF244395)),
+                                        color: Color(0xFF0B2E40)),
                                   ),
                                   const SizedBox(
                                     height: 40,
@@ -424,7 +426,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             20)),
-                                                primary: Colors.indigo),
+                                                primary:
+                                                    const Color(0xFF0B2E40)),
                                             child: const Text(
                                               "Cancel",
                                               style: TextStyle(
@@ -481,11 +484,14 @@ class _HomeScreenState extends State<HomeScreen> {
                               icon: const Icon(
                                 Icons.menu_rounded,
                                 size: 35,
+                                color: Color(0xFF0B2E40),
                               )),
                           const Text(
                             "Home",
                             style: TextStyle(
-                                fontSize: 22, fontWeight: FontWeight.w600),
+                                fontSize: 22,
+                                color: Color(0xFF0B2E40),
+                                fontWeight: FontWeight.w600),
                           ),
                           // Container(
                           //   height: 40,
@@ -527,15 +533,15 @@ class _HomeScreenState extends State<HomeScreen> {
                               width: 45,
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(20)),
-                              child: userModel.image! != null
-                                  ? Image.network(
+                              child: userModel.image!.isEmpty
+                                  ? Container(
+                                      height: 75,
+                                      width: 75,
+                                      color: const Color(0xFF0B2E40),
+                                    )
+                                  : Image.network(
                                       userModel.image!,
                                       fit: BoxFit.cover,
-                                    )
-                                  : Container(
-                                      height: 45,
-                                      width: 45,
-                                      color: Colors.grey,
                                     ),
                             ),
                           ),
@@ -598,7 +604,17 @@ class _HomeScreenState extends State<HomeScreen> {
                                       padding: const EdgeInsets.all(10),
                                       margin: const EdgeInsets.all(10),
                                       decoration: BoxDecoration(
-                                          color: Colors.redAccent,
+                                          gradient: LinearGradient(
+                                            colors: [
+                                              Colors.amber.shade500,
+                                              Colors.orange
+                                              // Colors.deepPurple
+                                              //     .withOpacity(0.9),
+                                              // Colors.deepPurple
+                                            ],
+                                            begin: Alignment.bottomLeft,
+                                            end: Alignment.topRight,
+                                          ),
                                           borderRadius:
                                               BorderRadius.circular(10)),
                                       child: Column(
@@ -670,7 +686,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                                                 18,
                                                                             fontWeight:
                                                                                 FontWeight.w600,
-                                                                            color: Color(0xFF244395)),
+                                                                            color: Color(0xFF0B2E40)),
                                                                       ),
                                                                       const SizedBox(
                                                                         height:
@@ -687,7 +703,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                                           style: TextStyle(
                                                                               fontSize: 16,
                                                                               fontWeight: FontWeight.w500,
-                                                                              color: Color(0xFF244395)),
+                                                                              color: Color(0xFF0B2E40)),
                                                                         ),
                                                                       ),
                                                                       const SizedBox(
@@ -705,7 +721,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                                                 onPressed: () {
                                                                                   Navigator.pop(context);
                                                                                 },
-                                                                                style: ElevatedButton.styleFrom(shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)), primary: Colors.indigo),
+                                                                                style: ElevatedButton.styleFrom(shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)), primary: const Color(0xFF0B2E40)),
                                                                                 child: const Text(
                                                                                   "Cancel",
                                                                                   style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
@@ -794,7 +810,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     style: TextStyle(
                                         fontSize: 20,
                                         fontWeight: FontWeight.w600,
-                                        color: Color(0xFF244395)),
+                                        color: Color(0xFF0B2E40)),
                                   ),
                                   const SizedBox(
                                     height: 30,
@@ -855,7 +871,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                             shape: RoundedRectangleBorder(
                                                 borderRadius:
                                                     BorderRadius.circular(10)),
-                                            primary: Colors.indigo),
+                                            primary: const Color(0xFF0B2E40)),
                                         child: const Text(
                                           "DONE",
                                           style: TextStyle(
@@ -869,7 +885,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     },
                   );
                 },
-                backgroundColor: Colors.indigo,
+                backgroundColor: const Color(0xFF0B2E40),
                 child: const Icon(
                   Icons.add_rounded,
                   size: 37,

@@ -48,6 +48,7 @@ class _EditTaskState extends State<EditTask> {
                     },
                     icon: const Icon(
                       Icons.arrow_back_rounded,
+                      color: Color(0xFF0B2E40),
                       size: 32,
                     )),
                 const SizedBox(
@@ -55,7 +56,10 @@ class _EditTaskState extends State<EditTask> {
                 ),
                 const Text(
                   "Edit Task",
-                  style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600),
+                  style: TextStyle(
+                      fontSize: 22,
+                      color: Color(0xFF0B2E40),
+                      fontWeight: FontWeight.w600),
                 ),
               ],
             ),
@@ -96,7 +100,7 @@ class _EditTaskState extends State<EditTask> {
                       ).then((value) => {Navigator.pop(context)});
                     },
                     style: ElevatedButton.styleFrom(
-                        primary: Colors.indigo,
+                        primary: const Color(0xFF0B2E40),
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(50))),
                     child: const Text(
