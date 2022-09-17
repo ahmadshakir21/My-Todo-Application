@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class AboutMe extends StatelessWidget {
@@ -36,13 +37,12 @@ class AboutMe extends StatelessWidget {
                     const SizedBox(
                       width: 91,
                     ),
-                    const Text(
+                    Text(
                       "About Me",
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w700,
-                        color: Color(0xFF0B2E40),
-                      ),
+                      style: GoogleFonts.poppins(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w600,
+                          color: const Color(0xFF0B2E40)),
                     ),
                   ],
                 ),
@@ -66,22 +66,22 @@ class AboutMe extends StatelessWidget {
                 const SizedBox(
                   height: 20,
                 ),
-                const Text(
+                Text(
                   "Ahmad Shakir Khalid",
-                  style: TextStyle(
-                      fontSize: 20,
+                  style: GoogleFonts.poppins(
+                      fontSize: 18,
                       fontWeight: FontWeight.w600,
-                      color: Color(0xFF0B2E40)),
+                      color: const Color(0xFF0B2E40)),
                 ),
                 const SizedBox(
                   height: 5,
                 ),
-                const Text(
+                Text(
                   "Flutter Developer",
-                  style: TextStyle(
-                      fontSize: 20,
+                  style: GoogleFonts.poppins(
+                      fontSize: 18,
                       fontWeight: FontWeight.w500,
-                      color: Color(0xFF0B2E40)),
+                      color: const Color(0xFF0B2E40)),
                 ),
                 const SizedBox(
                   height: 60,
@@ -98,15 +98,17 @@ class AboutMe extends StatelessWidget {
                           primary: const Color(0xFF4267B2)),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
-                          FaIcon(FontAwesomeIcons.facebook),
-                          SizedBox(
+                        children: [
+                          const FaIcon(FontAwesomeIcons.facebook),
+                          const SizedBox(
                             width: 20,
                           ),
                           Text(
                             "Facebook",
-                            style: TextStyle(
-                                fontSize: 16, fontWeight: FontWeight.w500),
+                            style: GoogleFonts.poppins(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500,
+                            ),
                           ),
                         ],
                       )),
@@ -126,15 +128,17 @@ class AboutMe extends StatelessWidget {
                           primary: const Color(0xFF0077b5)),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
-                          FaIcon(FontAwesomeIcons.linkedin),
-                          SizedBox(
+                        children: [
+                          const FaIcon(FontAwesomeIcons.linkedin),
+                          const SizedBox(
                             width: 20,
                           ),
                           Text(
                             "linked In",
-                            style: TextStyle(
-                                fontSize: 16, fontWeight: FontWeight.w500),
+                            style: GoogleFonts.poppins(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500,
+                            ),
                           ),
                         ],
                       )),
@@ -153,15 +157,17 @@ class AboutMe extends StatelessWidget {
                           primary: const Color(0xFF1DA1F2)),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
-                          FaIcon(FontAwesomeIcons.twitter),
-                          SizedBox(
+                        children: [
+                          const FaIcon(FontAwesomeIcons.twitter),
+                          const SizedBox(
                             width: 20,
                           ),
                           Text(
                             "Twitter",
-                            style: TextStyle(
-                                fontSize: 16, fontWeight: FontWeight.w500),
+                            style: GoogleFonts.poppins(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500,
+                            ),
                           ),
                         ],
                       )),
@@ -180,15 +186,17 @@ class AboutMe extends StatelessWidget {
                           primary: const Color(0xFF0B2E40)),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
-                          FaIcon(FontAwesomeIcons.github),
-                          SizedBox(
+                        children: [
+                          const FaIcon(FontAwesomeIcons.github),
+                          const SizedBox(
                             width: 20,
                           ),
                           Text(
                             "Github",
-                            style: TextStyle(
-                                fontSize: 16, fontWeight: FontWeight.w500),
+                            style: GoogleFonts.poppins(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500,
+                            ),
                           ),
                         ],
                       )),

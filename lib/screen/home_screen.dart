@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path/path.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'package:todo_app/model/task_model.dart';
 import 'package:todo_app/model/user.dart';
@@ -98,9 +99,9 @@ class _HomeScreenState extends State<HomeScreen> {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const CircularProgressIndicator();
           } else if (snapshot.hasError) {
-            return const Text("Error...");
+            return Text("Error...", style: GoogleFonts.poppins());
           } else if (snapshot.data == null) {
-            return const Text("Data is null");
+            return Text("Data is null", style: GoogleFonts.poppins());
           }
 
           UserModel userModel =
@@ -228,18 +229,22 @@ class _HomeScreenState extends State<HomeScreen> {
                               children: [
                                 Text(
                                   userModel.name!,
-                                  style: const TextStyle(
-                                      fontSize: 18,
+                                  style: GoogleFonts.poppins(
+                                      fontSize: 16,
                                       fontWeight: FontWeight.w500,
                                       color: Colors.white),
+                                  // style: const TextStyle(
+                                  //     fontSize: 18,
+                                  //     fontWeight: FontWeight.w500,
+                                  //     color: Colors.white),
                                 ),
                                 const SizedBox(
                                   height: 5,
                                 ),
                                 Text(
                                   user!.email!,
-                                  style: const TextStyle(
-                                      fontSize: 15,
+                                  style: GoogleFonts.poppins(
+                                      fontSize: 14,
                                       fontWeight: FontWeight.w400,
                                       color: Colors.white),
                                 ),
@@ -275,20 +280,22 @@ class _HomeScreenState extends State<HomeScreen> {
                                       const SizedBox(
                                         height: 10,
                                       ),
-                                      const Text(
+                                      Text(
                                         "Adding Your Task",
-                                        style: TextStyle(
-                                            fontSize: 20,
+                                        style: GoogleFonts.poppins(
+                                            fontSize: 18,
                                             fontWeight: FontWeight.w600,
-                                            color: Color(0xFF0B2E40)),
+                                            color: const Color(0xFF0B2E40)),
                                       ),
                                       const SizedBox(
                                         height: 30,
                                       ),
                                       TextField(
                                         controller: taskNameController,
+                                        style: GoogleFonts.poppins(),
                                         decoration: InputDecoration(
                                             hintText: "Task Name",
+                                            hintStyle: GoogleFonts.poppins(),
                                             border: OutlineInputBorder(
                                                 borderRadius:
                                                     BorderRadius.circular(10))),
@@ -298,9 +305,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                       ),
                                       TextField(
                                         maxLines: 7,
+                                        style: GoogleFonts.poppins(),
                                         controller: taskDescriptionController,
                                         decoration: InputDecoration(
                                             hintText: "Task Description",
+                                            hintStyle: GoogleFonts.poppins(),
                                             border: OutlineInputBorder(
                                                 borderRadius:
                                                     BorderRadius.circular(10))),
@@ -346,10 +355,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                                             10)),
                                                 primary:
                                                     const Color(0xFF0B2E40)),
-                                            child: const Text(
+                                            child: Text(
                                               "DONE",
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.w600),
+                                              style: GoogleFonts.poppins(
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.w500,
+                                              ),
                                             )),
                                       ),
                                     ]),
@@ -391,22 +402,22 @@ class _HomeScreenState extends State<HomeScreen> {
                                   const SizedBox(
                                     height: 20,
                                   ),
-                                  const Text(
+                                  Text(
                                     "Alert",
-                                    style: TextStyle(
+                                    style: GoogleFonts.poppins(
                                         fontSize: 18,
                                         fontWeight: FontWeight.w600,
-                                        color: Color(0xFF0B2E40)),
+                                        color: const Color(0xFF0B2E40)),
                                   ),
                                   const SizedBox(
                                     height: 20,
                                   ),
-                                  const Text(
+                                  Text(
                                     "Are you Sure want to Logout?",
-                                    style: TextStyle(
+                                    style: GoogleFonts.poppins(
                                         fontSize: 16,
-                                        fontWeight: FontWeight.w500,
-                                        color: Color(0xFF0B2E40)),
+                                        fontWeight: FontWeight.w600,
+                                        color: const Color(0xFF0B2E40)),
                                   ),
                                   const SizedBox(
                                     height: 40,
@@ -418,22 +429,21 @@ class _HomeScreenState extends State<HomeScreen> {
                                       SizedBox(
                                         width: 110,
                                         child: ElevatedButton(
-                                            onPressed: () {
-                                              Navigator.pop(context);
-                                            },
-                                            style: ElevatedButton.styleFrom(
-                                                shape: RoundedRectangleBorder(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            20)),
-                                                primary:
-                                                    const Color(0xFF0B2E40)),
-                                            child: const Text(
-                                              "Cancel",
-                                              style: TextStyle(
-                                                  fontSize: 14,
-                                                  fontWeight: FontWeight.w500),
-                                            )),
+                                          onPressed: () {
+                                            Navigator.pop(context);
+                                          },
+                                          style: ElevatedButton.styleFrom(
+                                              shape: RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          20)),
+                                              primary: const Color(0xFF0B2E40)),
+                                          child: Text("Cancel",
+                                              style: GoogleFonts.poppins(
+                                                fontSize: 14,
+                                                fontWeight: FontWeight.w500,
+                                              )),
+                                        ),
                                       ),
                                       SizedBox(
                                         width: 110,
@@ -449,11 +459,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                                             20)),
                                                 primary:
                                                     const Color(0xFFE24047)),
-                                            child: const Text(
+                                            child: Text(
                                               "Logout",
-                                              style: TextStyle(
-                                                  fontSize: 14,
-                                                  fontWeight: FontWeight.w500),
+                                              style: GoogleFonts.poppins(
+                                                fontSize: 14,
+                                                fontWeight: FontWeight.w500,
+                                              ),
                                             )),
                                       )
                                     ],
@@ -486,12 +497,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                 size: 35,
                                 color: Color(0xFF0B2E40),
                               )),
-                          const Text(
+                          Text(
                             "Home",
-                            style: TextStyle(
-                                fontSize: 22,
-                                color: Color(0xFF0B2E40),
-                                fontWeight: FontWeight.w600),
+                            style: GoogleFonts.poppins(
+                                fontSize: 20,
+                                fontWeight: FontWeight.w600,
+                                color: const Color(0xFF0B2E40)),
                           ),
                           // Container(
                           //   height: 40,
@@ -587,8 +598,14 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ConnectionState.waiting) {
                               return const CircularProgressIndicator();
                             } else if (snapshot.hasError) {
-                              return const Center(
-                                  child: Text("Some error occured"));
+                              return Center(
+                                  child: Text(
+                                "Some error occured",
+                                style: GoogleFonts.poppins(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w600,
+                                    color: Colors.red),
+                              ));
                             } else if (snapshot.hasData) {
                               final taskData = snapshot.data;
                               return Container(
@@ -629,10 +646,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                                 Text(
                                                   singleData.taskName
                                                       .toString(),
-                                                  style: const TextStyle(
-                                                      fontSize: 18,
-                                                      fontWeight:
-                                                          FontWeight.w500),
+                                                  style: GoogleFonts.poppins(
+                                                    fontSize: 18,
+                                                    fontWeight: FontWeight.w500,
+                                                  ),
                                                 ),
                                                 Row(
                                                   children: [
@@ -679,20 +696,20 @@ class _HomeScreenState extends State<HomeScreen> {
                                                                         height:
                                                                             20,
                                                                       ),
-                                                                      const Text(
+                                                                      Text(
                                                                         "Delete Task",
-                                                                        style: TextStyle(
+                                                                        style: GoogleFonts.poppins(
                                                                             fontSize:
                                                                                 18,
                                                                             fontWeight:
                                                                                 FontWeight.w600,
-                                                                            color: Color(0xFF0B2E40)),
+                                                                            color: const Color(0xFF0B2E40)),
                                                                       ),
                                                                       const SizedBox(
                                                                         height:
                                                                             20,
                                                                       ),
-                                                                      const Padding(
+                                                                      Padding(
                                                                         padding:
                                                                             EdgeInsets.symmetric(horizontal: 5),
                                                                         child:
@@ -700,10 +717,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                                                           "Are you Sure want to Delete this task ?",
                                                                           textAlign:
                                                                               TextAlign.center,
-                                                                          style: TextStyle(
+                                                                          style: GoogleFonts.poppins(
                                                                               fontSize: 16,
                                                                               fontWeight: FontWeight.w500,
-                                                                              color: Color(0xFF0B2E40)),
+                                                                              color: const Color(0xFF0B2E40)),
                                                                         ),
                                                                       ),
                                                                       const SizedBox(
@@ -722,9 +739,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                                                                   Navigator.pop(context);
                                                                                 },
                                                                                 style: ElevatedButton.styleFrom(shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)), primary: const Color(0xFF0B2E40)),
-                                                                                child: const Text(
+                                                                                child: Text(
                                                                                   "Cancel",
-                                                                                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+                                                                                  style: GoogleFonts.poppins(
+                                                                                    fontSize: 14,
+                                                                                    fontWeight: FontWeight.w500,
+                                                                                  ),
                                                                                 )),
                                                                           ),
                                                                           SizedBox(
@@ -735,9 +755,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                                                                   CloudFirestore.delete(singleData).then((value) => Navigator.pop(context));
                                                                                 },
                                                                                 style: ElevatedButton.styleFrom(shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)), primary: const Color(0xFFE24047)),
-                                                                                child: const Text(
+                                                                                child: Text(
                                                                                   "Delete",
-                                                                                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+                                                                                  style: GoogleFonts.poppins(
+                                                                                    fontSize: 14,
+                                                                                    fontWeight: FontWeight.w500,
+                                                                                  ),
                                                                                 )),
                                                                           )
                                                                         ],
@@ -769,8 +792,15 @@ class _HomeScreenState extends State<HomeScreen> {
                                             const SizedBox(
                                               height: 15,
                                             ),
-                                            Text(singleData.taskDescription
-                                                .toString()),
+                                            Text(
+                                              singleData.taskDescription
+                                                  .toString(),
+                                              style: GoogleFonts.poppins(
+                                                  fontSize: 14,
+                                                  fontWeight: FontWeight.w500,
+                                                  color:
+                                                      const Color(0xFF0B2E40)),
+                                            ),
                                           ]),
                                     );
                                   },
@@ -805,20 +835,22 @@ class _HomeScreenState extends State<HomeScreen> {
                                   const SizedBox(
                                     height: 10,
                                   ),
-                                  const Text(
+                                  Text(
                                     "Adding Your Task",
-                                    style: TextStyle(
-                                        fontSize: 20,
+                                    style: GoogleFonts.poppins(
+                                        fontSize: 18,
                                         fontWeight: FontWeight.w600,
-                                        color: Color(0xFF0B2E40)),
+                                        color: const Color(0xFF0B2E40)),
                                   ),
                                   const SizedBox(
                                     height: 30,
                                   ),
                                   TextField(
                                     controller: taskNameController,
+                                    style: GoogleFonts.poppins(),
                                     decoration: InputDecoration(
                                         hintText: "Task Name",
+                                        hintStyle: GoogleFonts.poppins(),
                                         border: OutlineInputBorder(
                                             borderRadius:
                                                 BorderRadius.circular(10))),
@@ -828,9 +860,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                   ),
                                   TextField(
                                     maxLines: 7,
+                                    style: GoogleFonts.poppins(),
                                     controller: taskDescriptionController,
                                     decoration: InputDecoration(
                                         hintText: "Task Description",
+                                        hintStyle: GoogleFonts.poppins(),
                                         border: OutlineInputBorder(
                                             borderRadius:
                                                 BorderRadius.circular(10))),
@@ -872,10 +906,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                                 borderRadius:
                                                     BorderRadius.circular(10)),
                                             primary: const Color(0xFF0B2E40)),
-                                        child: const Text(
+                                        child: Text(
                                           "DONE",
-                                          style: TextStyle(
-                                              fontWeight: FontWeight.w600),
+                                          style: GoogleFonts.poppins(
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.w500,
+                                          ),
                                         )),
                                   ),
                                 ]),

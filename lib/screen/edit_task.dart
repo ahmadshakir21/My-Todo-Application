@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:todo_app/model/task_model.dart';
 import 'package:todo_app/service/cloud_firestore.dart';
 
@@ -54,12 +55,12 @@ class _EditTaskState extends State<EditTask> {
                 const SizedBox(
                   width: 80,
                 ),
-                const Text(
+                Text(
                   "Edit Task",
-                  style: TextStyle(
-                      fontSize: 22,
-                      color: Color(0xFF0B2E40),
-                      fontWeight: FontWeight.w600),
+                  style: GoogleFonts.poppins(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w600,
+                      color: const Color(0xFF0B2E40)),
                 ),
               ],
             ),
@@ -68,8 +69,10 @@ class _EditTaskState extends State<EditTask> {
             ),
             TextField(
               controller: taskNameController,
+              style: GoogleFonts.poppins(),
               decoration: InputDecoration(
                   hintText: "Task Name",
+                  hintStyle: GoogleFonts.poppins(),
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10))),
             ),
@@ -78,9 +81,11 @@ class _EditTaskState extends State<EditTask> {
             ),
             TextField(
               maxLines: 7,
+              style: GoogleFonts.poppins(),
               controller: taskDescriptionController,
               decoration: InputDecoration(
                   hintText: "Task Description",
+                  hintStyle: GoogleFonts.poppins(),
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10))),
             ),
@@ -103,10 +108,12 @@ class _EditTaskState extends State<EditTask> {
                         primary: const Color(0xFF0B2E40),
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(50))),
-                    child: const Text(
+                    child: Text(
                       "Update",
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+                      style: GoogleFonts.poppins(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w600,
+                      ),
                     ))),
           ]),
         ),

@@ -4,6 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:todo_app/model/user.dart';
 
 class AuthenticationSignUp extends StatefulWidget {
@@ -83,25 +84,27 @@ class _AuthenticationSignUpState extends State<AuthenticationSignUp> {
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-            const Padding(
-              padding: EdgeInsets.only(top: 20, left: 15),
-              child: Text("Create Your Account",
-                  style: TextStyle(
-                      color: Color(0xFF0B2E40),
-                      fontSize: 28,
-                      fontWeight: FontWeight.bold)),
-            ),
+            Padding(
+                padding: const EdgeInsets.only(top: 20, left: 15),
+                child: Text(
+                  "Create Your Account",
+                  style: GoogleFonts.poppins(
+                      fontSize: 26,
+                      fontWeight: FontWeight.bold,
+                      color: const Color(0xFF0B2E40)),
+                )),
             const SizedBox(
               height: 15,
             ),
-            const Padding(
-              padding: EdgeInsets.only(left: 15, right: 15),
-              child: Text("Please Enter Your Credentials in the Form Below..!",
-                  style: TextStyle(
-                    color: Color(0xFF7E7B7B),
-                    fontSize: 16,
-                  )),
-            ),
+            Padding(
+                padding: const EdgeInsets.only(left: 15, right: 15),
+                child: Text(
+                  "Please Enter Your Credentials in the Form Below..!",
+                  style: GoogleFonts.poppins(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                      color: const Color(0xFF7E7B7B)),
+                )),
             const SizedBox(
               height: 50,
             ),
@@ -125,9 +128,12 @@ class _AuthenticationSignUpState extends State<AuthenticationSignUp> {
                           return null;
                         },
                         controller: userNameController,
-                        decoration: const InputDecoration(
-                            prefixIcon: Icon(Icons.person),
-                            hintText: "Username"),
+                        style: GoogleFonts.poppins(),
+                        decoration: InputDecoration(
+                          prefixIcon: const Icon(Icons.person),
+                          hintText: "Username",
+                          hintStyle: GoogleFonts.poppins(),
+                        ),
                       ),
                     ),
                   ),
@@ -144,9 +150,12 @@ class _AuthenticationSignUpState extends State<AuthenticationSignUp> {
                                 ? 'Enter a valid email'
                                 : null,
                         controller: emailController,
-                        decoration: const InputDecoration(
-                            prefixIcon: Icon(Icons.alternate_email_rounded),
-                            hintText: "Email"),
+                        style: GoogleFonts.poppins(),
+                        decoration: InputDecoration(
+                            prefixIcon:
+                                const Icon(Icons.alternate_email_rounded),
+                            hintText: "Email",
+                            hintStyle: GoogleFonts.poppins()),
                       ),
                     ),
                   ),
@@ -162,9 +171,11 @@ class _AuthenticationSignUpState extends State<AuthenticationSignUp> {
                             ? 'Enter min. 6 characters '
                             : null,
                         controller: passwordController,
-                        decoration: const InputDecoration(
-                            prefixIcon: Icon(Icons.lock_outline_rounded),
-                            hintText: "Password"),
+                        style: GoogleFonts.poppins(),
+                        decoration: InputDecoration(
+                            prefixIcon: const Icon(Icons.lock_outline_rounded),
+                            hintText: "Password",
+                            hintStyle: GoogleFonts.poppins()),
                       ),
                     ),
                   ),
@@ -183,9 +194,15 @@ class _AuthenticationSignUpState extends State<AuthenticationSignUp> {
                   child: ElevatedButton(
                     onPressed: signUp,
                     style: ElevatedButton.styleFrom(
-                      primary: const Color(0xFF244395),
+                      primary: const Color(0xFF0B2E40),
                     ),
-                    child: const Text("SIGN UP"),
+                    child: Text(
+                      "SIGN UP",
+                      style: GoogleFonts.poppins(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
                   ),
                 ),
               ),
@@ -197,17 +214,20 @@ class _AuthenticationSignUpState extends State<AuthenticationSignUp> {
               child: RichText(
                   text: TextSpan(
                       text: 'Already have an Account?',
-                      style: const TextStyle(
-                          color: Color(0xFF0B2E40), fontSize: 16),
+                      style: GoogleFonts.poppins(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500,
+                          color: const Color(0xFF0B2E40)),
                       children: <TextSpan>[
                     TextSpan(
-                        text: ' Sign In',
-                        recognizer: TapGestureRecognizer()
-                          ..onTap = widget.onClickedSignIn,
-                        style: const TextStyle(
-                            color: Color(0xFF244395),
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold))
+                      text: ' Sign in',
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = widget.onClickedSignIn,
+                      style: GoogleFonts.poppins(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.blue),
+                    )
                   ])),
             )
           ]))),

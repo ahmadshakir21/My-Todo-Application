@@ -1,7 +1,10 @@
+import 'dart:ui';
+
 import 'package:email_validator/email_validator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:todo_app/screen/authentication/forget_password.dart';
 
 class AuthenticationSignIn extends StatefulWidget {
@@ -86,14 +89,15 @@ class _AuthenticationSignInState extends State<AuthenticationSignIn> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Padding(
-                padding: EdgeInsets.symmetric(vertical: 20, horizontal: 15),
-                child: Text("Welcome",
-                    style: TextStyle(
-                        color: Color(0xFF0B2E40),
-                        fontSize: 28,
-                        fontWeight: FontWeight.bold)),
-              ),
+              Padding(
+                  padding: EdgeInsets.symmetric(vertical: 20, horizontal: 15),
+                  child: Text(
+                    "Welcome",
+                    style: GoogleFonts.poppins(
+                        fontSize: 26,
+                        fontWeight: FontWeight.bold,
+                        color: const Color(0xFF0B2E40)),
+                  )),
               const SizedBox(
                 height: 50,
               ),
@@ -113,9 +117,12 @@ class _AuthenticationSignInState extends State<AuthenticationSignIn> {
                                     ? 'Enter a valid email'
                                     : null,
                             controller: emailController,
-                            decoration: const InputDecoration(
-                                prefixIcon: Icon(Icons.alternate_email_rounded),
-                                hintText: "Email"),
+                            style: GoogleFonts.poppins(),
+                            decoration: InputDecoration(
+                                prefixIcon:
+                                    const Icon(Icons.alternate_email_rounded),
+                                hintText: "Email",
+                                hintStyle: GoogleFonts.poppins()),
                           ),
                         ),
                       ),
@@ -133,10 +140,13 @@ class _AuthenticationSignInState extends State<AuthenticationSignIn> {
                                     ? 'Enter min. 6 characters '
                                     : null,
                             controller: passwordController,
+                            style: GoogleFonts.poppins(),
                             obscureText: true,
-                            decoration: const InputDecoration(
-                                prefixIcon: Icon(Icons.lock_outline_rounded),
-                                hintText: "Password"),
+                            decoration: InputDecoration(
+                                prefixIcon:
+                                    const Icon(Icons.lock_outline_rounded),
+                                hintText: "Password",
+                                hintStyle: GoogleFonts.poppins()),
                           ),
                         ),
                       ),
@@ -150,9 +160,13 @@ class _AuthenticationSignInState extends State<AuthenticationSignIn> {
                             return ForgetPassword();
                           },
                         )),
-                    child: const Text(
+                    style: TextButton.styleFrom(primary: Colors.blue),
+                    child: Text(
                       "Forget Password",
-                      style: TextStyle(fontWeight: FontWeight.w600),
+                      style: GoogleFonts.poppins(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w500,
+                      ),
                     )),
               ),
               const SizedBox(
@@ -178,31 +192,40 @@ class _AuthenticationSignInState extends State<AuthenticationSignIn> {
                         }
                       },
                       style: ElevatedButton.styleFrom(
-                        primary: const Color(0xFF244395),
+                        primary: const Color(0xFF0B2E40),
                       ),
-                      child: const Text("SIGN IN"),
+                      child: Text(
+                        "SIGN IN",
+                        style: GoogleFonts.poppins(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
                     ),
                   ),
                 ),
               ),
               const SizedBox(
-                height: 250,
+                height: 230,
               ),
               Center(
                 child: RichText(
                   text: TextSpan(
                       text: 'Don\'t have an account?',
-                      style: const TextStyle(
-                          color: Color(0xFF0B2E40), fontSize: 16),
+                      style: GoogleFonts.poppins(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500,
+                          color: const Color(0xFF0B2E40)),
                       children: <TextSpan>[
                         TextSpan(
-                            text: ' Sign up',
-                            recognizer: TapGestureRecognizer()
-                              ..onTap = widget.onClickedSignUp,
-                            style: const TextStyle(
-                                color: Color(0xFF244395),
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold))
+                          text: ' Sign up',
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = widget.onClickedSignUp,
+                          style: GoogleFonts.poppins(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500,
+                              color: Colors.blue),
+                        )
                       ]),
                 ),
               ),
