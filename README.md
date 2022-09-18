@@ -14,7 +14,9 @@ A new Flutter app will use for write your tasks that you want to doing this task
 | ----------------- | ------------------------------------------------------------------ |
 | Example Color | ![#0B2E40](https://via.placeholder.com/10/0B2E40?text=+) #0B2E40 |
 | Example Color | ![#E24047](https://via.placeholder.com/10/E24047?text=+) #E24047 |
-| Example Color | ![#C4C4C4](https://via.placeholder.com/10/C4C4C4?text=+) #C4C4C4 |
+| Example Color | ![#2196F3](https://via.placeholder.com/10/2196F3?text=+) #2196F3 |
+| Example Color | ![#FFFFFF](https://via.placeholder.com/10/FFFFFF?text=+) #FFFFFF |
+| Example Color | ![#224C61](https://via.placeholder.com/10/224C61?text=+) #224C61 |
 
 
 ## Features
@@ -48,20 +50,21 @@ To clone and run this application, you'll need Git and Flutter installed on your
 ## Flutter Packages
 
   - font_awesome_flutter: ^10.1.0
-  - firebase_core: ^1.21.0
-  - firebase_auth: ^3.6.4
-  - cloud_firestore: ^3.4.6
-  - firebase_storage: ^10.3.7
-  - file_picker: ^5.0.1
-  - flutter_launcher_icons: ^0.10.0
-  - provider: ^6.0.3
+  - firebase_core: ^1.22.0
+  - cloud_firestore: ^3.4.7
+  - font_awesome_flutter: ^10.2.1
+  - firebase_auth: ^3.8.0
   - email_validator: ^2.1.17
-  - flutter_native_splash: ^2.2.8
-  - get: ^4.6.5
+  - firebase_storage: ^10.3.8
+  - file_picker: ^5.0.1
   - image_picker: ^0.8.5+3
-  - permission_handler: ^10.0.0
   - path: ^1.8.1
-  - path_provider: ^2.0.11 
+  - get: ^4.6.5
+  - permission_handler: ^10.0.0
+  - path_provider: ^2.0.11
+  - url_launcher: ^6.1.5
+  - google_fonts: ^3.0.1
+  - flutter_launcher_icons: ^0.10.0
 
 ## Authors
 
