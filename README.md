@@ -4,6 +4,10 @@ A new Flutter app can be used for your to-do list, gentle reminder, organizing y
 
 ## RICORDARE Logo
 
+<div id="header" align="center">
+  <img src="C:\Users\MIQDAD\Desktop\Food-Ordering-App\RICORDARE LOGO - 2.jpg" width="100"/>
+</div>
+
 ## App Screen
 
 ![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
