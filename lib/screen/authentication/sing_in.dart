@@ -90,13 +90,16 @@ class _AuthenticationSignInState extends State<AuthenticationSignIn> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                  padding: EdgeInsets.symmetric(vertical: 20, horizontal: 15),
-                  child: Text(
-                    "Welcome",
-                    style: GoogleFonts.poppins(
-                        fontSize: 26,
-                        fontWeight: FontWeight.bold,
-                        color: const Color(0xFF0B2E40)),
+                  padding: const EdgeInsets.symmetric(vertical: 20),
+                  child: Center(
+                    child: Text(
+                      "Welcome",
+                      style: GoogleFonts.poppins(
+                          fontSize: 26,
+                          fontWeight: FontWeight.bold,
+                          letterSpacing: 1,
+                          color: const Color(0xFF0B2E40)),
+                    ),
                   )),
               const SizedBox(
                 height: 50,
@@ -165,6 +168,7 @@ class _AuthenticationSignInState extends State<AuthenticationSignIn> {
                       "Forget Password",
                       style: GoogleFonts.poppins(
                         fontSize: 14,
+                        letterSpacing: 1,
                         fontWeight: FontWeight.w500,
                       ),
                     )),
@@ -198,6 +202,7 @@ class _AuthenticationSignInState extends State<AuthenticationSignIn> {
                         "SIGN IN",
                         style: GoogleFonts.poppins(
                           fontSize: 16,
+                          letterSpacing: 1,
                           fontWeight: FontWeight.w600,
                         ),
                       ),
@@ -214,6 +219,7 @@ class _AuthenticationSignInState extends State<AuthenticationSignIn> {
                       text: 'Don\'t have an account?',
                       style: GoogleFonts.poppins(
                           fontSize: 16,
+                          letterSpacing: 1,
                           fontWeight: FontWeight.w500,
                           color: const Color(0xFF0B2E40)),
                       children: <TextSpan>[
@@ -223,6 +229,7 @@ class _AuthenticationSignInState extends State<AuthenticationSignIn> {
                             ..onTap = widget.onClickedSignUp,
                           style: GoogleFonts.poppins(
                               fontSize: 16,
+                              letterSpacing: 1,
                               fontWeight: FontWeight.w500,
                               color: Colors.blue),
                         )

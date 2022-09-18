@@ -35,12 +35,13 @@ class AboutMe extends StatelessWidget {
                           color: Color(0xFF0B2E40),
                         )),
                     const SizedBox(
-                      width: 91,
+                      width: 90,
                     ),
                     Text(
                       "About Me",
                       style: GoogleFonts.poppins(
                           fontSize: 18,
+                          letterSpacing: 1,
                           fontWeight: FontWeight.w600,
                           color: const Color(0xFF0B2E40)),
                     ),
@@ -70,6 +71,7 @@ class AboutMe extends StatelessWidget {
                   "Ahmad Shakir Khalid",
                   style: GoogleFonts.poppins(
                       fontSize: 18,
+                      letterSpacing: 1,
                       fontWeight: FontWeight.w600,
                       color: const Color(0xFF0B2E40)),
                 ),
@@ -80,6 +82,7 @@ class AboutMe extends StatelessWidget {
                   "Flutter Developer",
                   style: GoogleFonts.poppins(
                       fontSize: 18,
+                      letterSpacing: 1,
                       fontWeight: FontWeight.w500,
                       color: const Color(0xFF0B2E40)),
                 ),
@@ -107,6 +110,7 @@ class AboutMe extends StatelessWidget {
                             "Facebook",
                             style: GoogleFonts.poppins(
                               fontSize: 16,
+                              letterSpacing: 1,
                               fontWeight: FontWeight.w500,
                             ),
                           ),
@@ -137,6 +141,7 @@ class AboutMe extends StatelessWidget {
                             "linked In",
                             style: GoogleFonts.poppins(
                               fontSize: 16,
+                              letterSpacing: 1,
                               fontWeight: FontWeight.w500,
                             ),
                           ),
@@ -166,6 +171,7 @@ class AboutMe extends StatelessWidget {
                             "Twitter",
                             style: GoogleFonts.poppins(
                               fontSize: 16,
+                              letterSpacing: 1,
                               fontWeight: FontWeight.w500,
                             ),
                           ),
@@ -195,6 +201,7 @@ class AboutMe extends StatelessWidget {
                             "Github",
                             style: GoogleFonts.poppins(
                               fontSize: 16,
+                              letterSpacing: 1,
                               fontWeight: FontWeight.w500,
                             ),
                           ),

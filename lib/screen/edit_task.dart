@@ -53,12 +53,13 @@ class _EditTaskState extends State<EditTask> {
                       size: 32,
                     )),
                 const SizedBox(
-                  width: 80,
+                  width: 94,
                 ),
                 Text(
                   "Edit Task",
                   style: GoogleFonts.poppins(
                       fontSize: 18,
+                      letterSpacing: 1,
                       fontWeight: FontWeight.w600,
                       color: const Color(0xFF0B2E40)),
                 ),
@@ -112,6 +113,7 @@ class _EditTaskState extends State<EditTask> {
                       "Update",
                       style: GoogleFonts.poppins(
                         fontSize: 18,
+                        letterSpacing: 1,
                         fontWeight: FontWeight.w600,
                       ),
                     ))),

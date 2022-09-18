@@ -53,6 +53,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                       "Forget Password",
                       style: GoogleFonts.poppins(
                           fontSize: 18,
+                          letterSpacing: 1,
                           fontWeight: FontWeight.w600,
                           color: const Color(0xFF0B2E40)),
                     ),
@@ -66,6 +67,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                   textAlign: TextAlign.center,
                   style: GoogleFonts.poppins(
                       fontSize: 16,
+                      letterSpacing: 1,
                       fontWeight: FontWeight.w600,
                       color: const Color(0xFF0B2E40)),
                 ),
@@ -99,6 +101,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                         "Reset Password",
                         style: GoogleFonts.poppins(
                           fontSize: 18,
+                          letterSpacing: 1,
                           fontWeight: FontWeight.w600,
                         ),
                       )),

@@ -34,6 +34,7 @@ class DrawerItems extends StatelessWidget {
                 text,
                 style: GoogleFonts.poppins(
                     fontSize: 16,
+                    letterSpacing: 1,
                     fontWeight: FontWeight.w600,
                     color: const Color(0xFF0B2E40)),
               )

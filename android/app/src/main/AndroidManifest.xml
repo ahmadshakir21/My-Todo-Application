@@ -10,7 +10,7 @@
 </queries>
    
    <application
-        android:label="todo_app"
+        android:label="RICORDARE"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

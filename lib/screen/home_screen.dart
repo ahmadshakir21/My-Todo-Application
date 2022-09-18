@@ -231,6 +231,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   userModel.name!,
                                   style: GoogleFonts.poppins(
                                       fontSize: 16,
+                                      letterSpacing: 1,
                                       fontWeight: FontWeight.w500,
                                       color: Colors.white),
                                   // style: const TextStyle(
@@ -245,6 +246,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   user!.email!,
                                   style: GoogleFonts.poppins(
                                       fontSize: 14,
+                                      letterSpacing: 1,
                                       fontWeight: FontWeight.w400,
                                       color: Colors.white),
                                 ),
@@ -284,6 +286,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         "Adding Your Task",
                                         style: GoogleFonts.poppins(
                                             fontSize: 18,
+                                            letterSpacing: 1,
                                             fontWeight: FontWeight.w600,
                                             color: const Color(0xFF0B2E40)),
                                       ),
@@ -359,6 +362,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                               "DONE",
                                               style: GoogleFonts.poppins(
                                                 fontSize: 16,
+                                                letterSpacing: 1,
                                                 fontWeight: FontWeight.w500,
                                               ),
                                             )),
@@ -378,7 +382,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       onClick: () {
                         Navigator.push(context, MaterialPageRoute(
                           builder: (context) {
-                            return AboutMe();
+                            return const AboutMe();
                           },
                         ));
                       }),
@@ -406,6 +410,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     "Alert",
                                     style: GoogleFonts.poppins(
                                         fontSize: 18,
+                                        letterSpacing: 1,
                                         fontWeight: FontWeight.w600,
                                         color: const Color(0xFF0B2E40)),
                                   ),
@@ -416,6 +421,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     "Are you Sure want to Logout?",
                                     style: GoogleFonts.poppins(
                                         fontSize: 16,
+                                        letterSpacing: 1,
                                         fontWeight: FontWeight.w600,
                                         color: const Color(0xFF0B2E40)),
                                   ),
@@ -441,6 +447,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           child: Text("Cancel",
                                               style: GoogleFonts.poppins(
                                                 fontSize: 14,
+                                                letterSpacing: 1,
                                                 fontWeight: FontWeight.w500,
                                               )),
                                         ),
@@ -463,6 +470,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                               "Logout",
                                               style: GoogleFonts.poppins(
                                                 fontSize: 14,
+                                                letterSpacing: 1,
                                                 fontWeight: FontWeight.w500,
                                               ),
                                             )),
@@ -501,6 +509,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             "Home",
                             style: GoogleFonts.poppins(
                                 fontSize: 20,
+                                letterSpacing: 1,
                                 fontWeight: FontWeight.w600,
                                 color: const Color(0xFF0B2E40)),
                           ),
@@ -537,23 +546,84 @@ class _HomeScreenState extends State<HomeScreen> {
                           //   ),
                           // ),
 
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(10),
-                            child: Container(
-                              height: 45,
-                              width: 45,
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(20)),
-                              child: userModel.image!.isEmpty
-                                  ? Container(
-                                      height: 75,
-                                      width: 75,
-                                      color: const Color(0xFF0B2E40),
-                                    )
-                                  : Image.network(
-                                      userModel.image!,
-                                      fit: BoxFit.cover,
+                          GestureDetector(
+                            onTap: () {
+                              showDialog(
+                                context: context,
+                                builder: (context) {
+                                  return Dialog(
+                                    elevation: 7,
+                                    alignment: Alignment.center,
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(20)),
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(10),
+                                      child: Container(
+                                        height: 315,
+                                        width: 315,
+                                        color: const Color(0xFF0B2E40),
+                                        child: Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Center(
+                                                child: Container(
+                                                  height: 315,
+                                                  width: 315,
+                                                  child: ClipRRect(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            10),
+                                                    child: Container(
+                                                      height: 45,
+                                                      width: 45,
+                                                      decoration: BoxDecoration(
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      20)),
+                                                      child: userModel
+                                                              .image!.isEmpty
+                                                          ? Container(
+                                                              height: 75,
+                                                              width: 75,
+                                                              color: const Color(
+                                                                  0xFF0B2E40),
+                                                            )
+                                                          : Image.network(
+                                                              userModel.image!,
+                                                              fit: BoxFit.cover,
+                                                            ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ]),
+                                      ),
                                     ),
+                                  );
+                                },
+                              );
+                            },
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(10),
+                              child: Container(
+                                height: 45,
+                                width: 45,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20)),
+                                child: userModel.image!.isEmpty
+                                    ? Container(
+                                        height: 75,
+                                        width: 75,
+                                        color: const Color(0xFF0B2E40),
+                                      )
+                                    : Image.network(
+                                        userModel.image!,
+                                        fit: BoxFit.cover,
+                                      ),
+                              ),
                             ),
                           ),
 
@@ -603,6 +673,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 "Some error occured",
                                 style: GoogleFonts.poppins(
                                     fontSize: 18,
+                                    letterSpacing: 1,
                                     fontWeight: FontWeight.w600,
                                     color: Colors.red),
                               ));
@@ -617,14 +688,18 @@ class _HomeScreenState extends State<HomeScreen> {
                                     final singleData = taskData[index];
                                     return Container(
                                       width: double.infinity,
-                                      height: 175,
-                                      padding: const EdgeInsets.all(10),
+                                      // height: 200,
+                                      padding: const EdgeInsets.only(
+                                          top: 10,
+                                          bottom: 20,
+                                          left: 10,
+                                          right: 10),
                                       margin: const EdgeInsets.all(10),
                                       decoration: BoxDecoration(
                                           gradient: LinearGradient(
                                             colors: [
-                                              Colors.amber.shade500,
-                                              Colors.orange
+                                              Colors.amber.shade700,
+                                              Colors.orange.shade400
                                               // Colors.deepPurple
                                               //     .withOpacity(0.9),
                                               // Colors.deepPurple
@@ -648,6 +723,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                       .toString(),
                                                   style: GoogleFonts.poppins(
                                                     fontSize: 18,
+                                                    letterSpacing: 1,
                                                     fontWeight: FontWeight.w500,
                                                   ),
                                                 ),
@@ -671,7 +747,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                                           ));
                                                         },
                                                         icon: const Icon(
-                                                            Icons.edit)),
+                                                          Icons.edit,
+                                                        )),
                                                     IconButton(
                                                         onPressed: () {
                                                           showDialog(
@@ -688,7 +765,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                                             20)),
                                                                 child:
                                                                     Container(
-                                                                  height: 200,
+                                                                  height: 220,
                                                                   width: 370,
                                                                   child: Column(
                                                                     children: [
@@ -701,6 +778,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                                                         style: GoogleFonts.poppins(
                                                                             fontSize:
                                                                                 18,
+                                                                            letterSpacing:
+                                                                                1,
                                                                             fontWeight:
                                                                                 FontWeight.w600,
                                                                             color: const Color(0xFF0B2E40)),
@@ -711,7 +790,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                                       ),
                                                                       Padding(
                                                                         padding:
-                                                                            EdgeInsets.symmetric(horizontal: 5),
+                                                                            const EdgeInsets.symmetric(horizontal: 5),
                                                                         child:
                                                                             Text(
                                                                           "Are you Sure want to Delete this task ?",
@@ -719,6 +798,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                                               TextAlign.center,
                                                                           style: GoogleFonts.poppins(
                                                                               fontSize: 16,
+                                                                              letterSpacing: 1,
                                                                               fontWeight: FontWeight.w500,
                                                                               color: const Color(0xFF0B2E40)),
                                                                         ),
@@ -743,6 +823,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                                                   "Cancel",
                                                                                   style: GoogleFonts.poppins(
                                                                                     fontSize: 14,
+                                                                                    letterSpacing: 1,
                                                                                     fontWeight: FontWeight.w500,
                                                                                   ),
                                                                                 )),
@@ -759,6 +840,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                                                   "Delete",
                                                                                   style: GoogleFonts.poppins(
                                                                                     fontSize: 14,
+                                                                                    letterSpacing: 1,
                                                                                     fontWeight: FontWeight.w500,
                                                                                   ),
                                                                                 )),
@@ -783,8 +865,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                                           //                   .taskDescription)),
                                                           // ));
                                                         },
-                                                        icon: const Icon(Icons
-                                                            .delete_rounded)),
+                                                        icon: const Icon(
+                                                          Icons.delete_rounded,
+                                                        )),
                                                   ],
                                                 ),
                                               ],
@@ -797,6 +880,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                   .toString(),
                                               style: GoogleFonts.poppins(
                                                   fontSize: 14,
+                                                  letterSpacing: 1,
                                                   fontWeight: FontWeight.w500,
                                                   color:
                                                       const Color(0xFF0B2E40)),
@@ -839,6 +923,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     "Adding Your Task",
                                     style: GoogleFonts.poppins(
                                         fontSize: 18,
+                                        letterSpacing: 1,
                                         fontWeight: FontWeight.w600,
                                         color: const Color(0xFF0B2E40)),
                                   ),
@@ -910,6 +995,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           "DONE",
                                           style: GoogleFonts.poppins(
                                             fontSize: 16,
+                                            letterSpacing: 1,
                                             fontWeight: FontWeight.w500,
                                           ),
                                         )),

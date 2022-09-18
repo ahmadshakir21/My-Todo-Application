@@ -85,13 +85,16 @@ class _AuthenticationSignUpState extends State<AuthenticationSignUp> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
             Padding(
-                padding: const EdgeInsets.only(top: 20, left: 15),
-                child: Text(
-                  "Create Your Account",
-                  style: GoogleFonts.poppins(
-                      fontSize: 26,
-                      fontWeight: FontWeight.bold,
-                      color: const Color(0xFF0B2E40)),
+                padding: const EdgeInsets.only(top: 20),
+                child: Center(
+                  child: Text(
+                    "Create Your Account",
+                    style: GoogleFonts.poppins(
+                        fontSize: 26,
+                        letterSpacing: 1,
+                        fontWeight: FontWeight.bold,
+                        color: const Color(0xFF0B2E40)),
+                  ),
                 )),
             const SizedBox(
               height: 15,
@@ -100,8 +103,10 @@ class _AuthenticationSignUpState extends State<AuthenticationSignUp> {
                 padding: const EdgeInsets.only(left: 15, right: 15),
                 child: Text(
                   "Please Enter Your Credentials in the Form Below..!",
+                  textAlign: TextAlign.center,
                   style: GoogleFonts.poppins(
                       fontSize: 16,
+                      letterSpacing: 1,
                       fontWeight: FontWeight.w500,
                       color: const Color(0xFF7E7B7B)),
                 )),
@@ -200,6 +205,7 @@ class _AuthenticationSignUpState extends State<AuthenticationSignUp> {
                       "SIGN UP",
                       style: GoogleFonts.poppins(
                         fontSize: 16,
+                        letterSpacing: 1,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
@@ -216,6 +222,7 @@ class _AuthenticationSignUpState extends State<AuthenticationSignUp> {
                       text: 'Already have an Account?',
                       style: GoogleFonts.poppins(
                           fontSize: 16,
+                          letterSpacing: 1,
                           fontWeight: FontWeight.w500,
                           color: const Color(0xFF0B2E40)),
                       children: <TextSpan>[
@@ -225,6 +232,7 @@ class _AuthenticationSignUpState extends State<AuthenticationSignUp> {
                         ..onTap = widget.onClickedSignIn,
                       style: GoogleFonts.poppins(
                           fontSize: 16,
+                          letterSpacing: 1,
                           fontWeight: FontWeight.w500,
                           color: Colors.blue),
                     )

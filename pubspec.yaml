@@ -54,6 +54,14 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_launcher_icons: ^0.10.0
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/RICORDARE LOGO - without text.png"
+  adaptive_icon_background: "#ffffff"
+  adaptive_icon_foreground: "assets/images/play_store_512.png"
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -76,7 +84,6 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/photo_5199812254550311358_y.jpg
-    - assets/images/man.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
