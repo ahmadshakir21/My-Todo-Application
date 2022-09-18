@@ -1,6 +1,6 @@
 # RICORDARE
 
-A new Flutter app will use for write your tasks that you want to doing this tasks and for remembering your task.
+A new Flutter app can be used for your to-do list, gentle reminder, organizing your schedule or agenda as well. It developed in a very basic way considering the user experience, user friendly as much as possible and it does. User can register through their email address and create an account where they can start easily with the app and add their tasks, update, delete and logout at any time.
 
 ## RICORDARE Logo
 
@@ -79,3 +79,5 @@ To clone and run this application, you'll need Git and Flutter installed on your
 
 
 ## Conclusion
+
+As a recap, Ricordare will come in handy for users as of its simplicity we developed in the first place and we will taking users conflict and feedbacks or needs into consideration later in next phase in order to build their desirable app. 
