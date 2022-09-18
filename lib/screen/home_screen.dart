@@ -230,7 +230,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 Text(
                                   userModel.name!,
                                   style: GoogleFonts.poppins(
-                                      fontSize: 16,
+                                      fontSize: 15,
                                       letterSpacing: 1,
                                       fontWeight: FontWeight.w500,
                                       color: Colors.white),
@@ -245,7 +245,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 Text(
                                   user!.email!,
                                   style: GoogleFonts.poppins(
-                                      fontSize: 14,
+                                      fontSize: 12,
                                       letterSpacing: 1,
                                       fontWeight: FontWeight.w400,
                                       color: Colors.white),
@@ -274,7 +274,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   borderRadius: BorderRadius.circular(20)),
                               child: SingleChildScrollView(
                                 child: Container(
-                                  height: 450,
+                                  height: 475,
                                   width: 350,
                                   child: Padding(
                                     padding: const EdgeInsets.all(10),
@@ -318,7 +318,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                     BorderRadius.circular(10))),
                                       ),
                                       const SizedBox(
-                                        height: 40,
+                                        height: 25,
                                       ),
                                       Container(
                                         width: 135,
@@ -399,7 +399,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(20)),
                             child: Container(
-                              height: 200,
+                              height: 230,
                               width: 350,
                               child: Column(
                                 children: [
@@ -419,10 +419,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                   ),
                                   Text(
                                     "Are you Sure want to Logout?",
+                                    textAlign: TextAlign.center,
                                     style: GoogleFonts.poppins(
                                         fontSize: 16,
                                         letterSpacing: 1,
-                                        fontWeight: FontWeight.w600,
+                                        fontWeight: FontWeight.w500,
                                         color: const Color(0xFF0B2E40)),
                                   ),
                                   const SizedBox(
@@ -911,7 +912,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               borderRadius: BorderRadius.circular(20)),
                           child: SingleChildScrollView(
                             child: Container(
-                              height: 450,
+                              height: 475,
                               width: 350,
                               child: Padding(
                                 padding: const EdgeInsets.all(10),
@@ -955,7 +956,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                 BorderRadius.circular(10))),
                                   ),
                                   const SizedBox(
-                                    height: 40,
+                                    height: 25,
                                   ),
                                   Container(
                                     width: 135,

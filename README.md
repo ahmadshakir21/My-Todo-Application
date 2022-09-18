@@ -2,11 +2,6 @@
 
 A new Flutter app can be used for your to-do list, gentle reminder, organizing your schedule or agenda as well. It developed in a very basic way considering the user experience, user friendly as much as possible and it does. User can register through their email address and create an account where they can start easily with the app and add their tasks, update, delete and logout at any time.
 
-## RICORDARE Logo
-
-## App Screen
-
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
 
 ## Color Reference
 
